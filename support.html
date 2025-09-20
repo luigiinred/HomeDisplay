@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support - Home Display</title>
+    <meta
+      name="description"
+      content="Get help with Home Display. Find answers to common questions, contact support, and submit feature requests."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .support-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 120px 20px 80px;
+      }
+      .support-hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .support-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+      .support-hero p {
+        font-size: 1.25rem;
+        color: #6b7280;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .support-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      .contact-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      .contact-form h2 {
+        margin-bottom: 1.5rem;
+        color: #1f2937;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #374151;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .btn-submit {
+        background: #2563eb;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+      }
+      .btn-submit:hover {
+        background: #1d4ed8;
+      }
+      .btn-submit:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+      }
+      .faq-section {
+        background: #f8fafc;
+        padding: 2rem;
+        border-radius: 12px;
+      }
+      .faq-section h2 {
+        margin-bottom: 1.5rem;
+        color: #1f2937;
+      }
+      .faq-item {
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .faq-question {
+        padding: 1rem;
+        background: white;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #374151;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s ease;
+      }
+      .faq-question:hover {
+        background: #f9fafb;
+      }
+      .faq-answer {
+        padding: 0 1rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        background: #f9fafb;
+      }
+      .faq-answer.active {
+        padding: 1rem;
+        max-height: 200px;
+      }
+      .faq-icon {
+        transition: transform 0.3s ease;
+      }
+      .faq-icon.active {
+        transform: rotate(180deg);
+      }
+      .contact-info {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        margin-top: 2rem;
+      }
+      .contact-info h3 {
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      .contact-method {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+      }
+      .contact-method i {
+        font-size: 1.5rem;
+        color: #2563eb;
+        margin-right: 1rem;
+      }
+      .contact-method div h4 {
+        margin-bottom: 0.25rem;
+        color: #374151;
+      }
+      .contact-method div p {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+      .success-message {
+        background: #d1fae5;
+        color: #065f46;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .error-message {
+        background: #fee2e2;
+        color: #991b1b;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .support-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-home"></i>
+          <span>Home Display</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#screenshots">Screenshots</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="support-content">
+      <div class="support-hero">
+        <h1>How Can We Help?</h1>
+        <p>
+          Get support, ask questions, or submit feature requests. We're here to
+          help you make the most of Home Display.
+        </p>
+      </div>
+
+      <div class="support-grid">
+        <div class="contact-form">
+          <h2>Contact Us</h2>
+          <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i> Thank you! Your message has been
+            sent successfully. We'll get back to you soon.
+          </div>
+          <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-circle"></i> Sorry, there was an error
+            sending your message. Please try again.
+          </div>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a topic</option>
+                <option value="general">General Question</option>
+                <option value="technical">Technical Support</option>
+                <option value="feature">Feature Request</option>
+                <option value="bug">Bug Report</option>
+                <option value="billing">Billing Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Please describe your question or issue in detail..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do I connect my smart home devices?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                To connect your smart home devices, open the app and go to
+                Settings > Add Device. The app will scan for compatible devices
+                on your network. Follow the on-screen instructions to pair each
+                device. Most devices require you to put them in pairing mode
+                first.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Which smart home platforms are supported?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Home Display supports HomeKit, Alexa, Google Home, SmartThings,
+                and many other popular smart home platforms. We're constantly
+                adding support for new platforms and devices.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I customize the interface?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes! You can customize the interface by going to Settings >
+                Appearance. You can choose from different themes, layouts, and
+                color schemes to match your home's aesthetic.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is my data secure and private?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Absolutely. Home Display is designed with privacy in mind. All
+                your data stays on your device and is never sent to our servers.
+                We don't collect or store any personal information.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do I update the app?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Updates are delivered through the App Store. You'll receive a
+                notification when an update is available, or you can check
+                manually in the App Store app.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What if I have a device that's not supported?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                If your device isn't supported, please submit a feature request
+                using the contact form. We're always looking to add support for
+                new devices and platforms based on user demand.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <h3>Other Ways to Reach Us</h3>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email Support</h4>
+              <p>support@homedisplay.app</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-comments"></i>
+            <div>
+              <h4>Live Chat</h4>
+              <p>Available 9 AM - 5 PM PST</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fab fa-twitter"></i>
+            <div>
+              <h4>Twitter</h4>
+              <p>@HomeDisplayApp</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-question-circle"></i>
+            <div>
+              <h4>Help Center</h4>
+              <p>Browse our knowledge base</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <i class="fas fa-home"></i>
+              <span>Home Display</span>
+            </div>
+            <p>
+              Transform your iPad into a beautiful smart home control center.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="index.html#features">Features</a></li>
+              <li><a href="index.html#screenshots">Screenshots</a></li>
+              <li>
+                <a
+                  href="https://apps.apple.com/app/home-display"
+                  target="_blank"
+                  >Download</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="support.html">Help Center</a></li>
+              <li><a href="support.html#contact">Contact Us</a></li>
+              <li><a href="support.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Home Display. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="form-handler.js"></script>
+    <script>
+      // FAQ Toggle Functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector(".faq-icon");
+
+          // Close all other FAQ items
+          document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
+            if (otherAnswer !== answer) {
+              otherAnswer.classList.remove("active");
+            }
+          });
+          document.querySelectorAll(".faq-icon").forEach((otherIcon) => {
+            if (otherIcon !== icon) {
+              otherIcon.classList.remove("active");
+            }
+          });
+
+          // Toggle current FAQ item
+          answer.classList.toggle("active");
+          icon.classList.toggle("active");
+        });
+      });
+
+      // Initialize form handler
+      // Uncomment one of the following options:
+
+      // Option 1: Formspree (recommended for GitHub Pages)
+      // new FormHandler();
+
+      // Option 2: Custom backend endpoint
+      // new SimpleFormHandler('/api/contact');
+
+      // Option 3: Demo mode (current implementation)
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const submitBtn = this.querySelector(".btn-submit");
+          const successMessage = document.getElementById("successMessage");
+          const errorMessage = document.getElementById("errorMessage");
+
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+          // Hide previous messages
+          successMessage.style.display = "none";
+          errorMessage.style.display = "none";
+
+          try {
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Simulate API call (replace with actual endpoint)
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            // For demo purposes, we'll simulate success
+            // In a real implementation, you would send this to your backend
+            console.log("Form data:", data);
+
+            // Show success message
+            successMessage.style.display = "block";
+            this.reset();
+          } catch (error) {
+            console.error("Error:", error);
+            errorMessage.style.display = "block";
+          } finally {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.innerHTML =
+              '<i class="fas fa-paper-plane"></i> Send Message';
+          }
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
