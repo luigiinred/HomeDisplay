@@ -203,26 +203,26 @@
         margin-bottom: 1rem;
         display: none;
       }
-       .error-message {
-         background: #fee2e2;
-         color: #991b1b;
-         padding: 1rem;
-         border-radius: 8px;
-         margin-bottom: 1rem;
-         display: none;
-       }
-       .form-options {
-         text-align: center;
-         margin-top: 2rem;
-       }
-       .form-options .btn {
-         margin: 0.5rem;
-       }
-       .contact-method.email-support:hover {
-         background: #e5f3ff;
-         transform: translateY(-2px);
-         transition: all 0.3s ease;
-       }
+      .error-message {
+        background: #fee2e2;
+        color: #991b1b;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .form-options {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .form-options .btn {
+        margin: 0.5rem;
+      }
+      .contact-method.email-support:hover {
+        background: #e5f3ff;
+        transform: translateY(-2px);
+        transition: all 0.3s ease;
+      }
       @media (max-width: 768px) {
         .support-grid {
           grid-template-columns: 1fr;
@@ -266,22 +266,27 @@
         </p>
       </div>
 
-       <div class="support-grid">
-         <div class="contact-form">
-           <h2>Feature Requests</h2>
-           <p>Have an idea for a new feature? Submit your request using our Google Form:</p>
-           <div class="form-options">
-             <a href="https://docs.google.com/forms/d/1WlPDCiHEoCAeGW7--GJgXXrnAMblwNIBMUef5II3LtY/edit" 
-                target="_blank" 
-                class="btn btn-primary btn-large">
-               <i class="fab fa-google"></i>
-               Submit Feature Request
-             </a>
-           </div>
-         </div>
+      <div class="support-grid">
+        <div class="contact-form">
+          <h2>Feature Requests</h2>
+          <p>
+            Have an idea for a new feature? Submit your request using our Google
+            Form:
+          </p>
+          <div class="form-options">
+            <a
+              href="https://docs.google.com/forms/d/1WlPDCiHEoCAeGW7--GJgXXrnAMblwNIBMUef5II3LtY/edit"
+              target="_blank"
+              class="btn btn-primary btn-large"
+            >
+              <i class="fab fa-google"></i>
+              Submit Feature Request
+            </a>
+          </div>
+        </div>
 
-         <div class="contact-form">
-           <h2>Support & General Questions</h2>
+        <div class="contact-form">
+          <h2>Support & General Questions</h2>
           <div class="success-message" id="successMessage">
             <i class="fas fa-check-circle"></i> Thank you! Your message has been
             sent successfully. We'll get back to you soon.
@@ -415,14 +420,14 @@
 
       <div class="contact-info">
         <h3>Other Ways to Reach Us</h3>
-           <div class="contact-methods">
-             <div class="contact-method email-support" style="cursor: pointer;">
-               <i class="fas fa-envelope"></i>
-               <div>
-                 <h4>Email Support</h4>
-                 <p>Click to open email client</p>
-               </div>
-             </div>
+        <div class="contact-methods">
+          <div class="contact-method email-support" style="cursor: pointer">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email Support</h4>
+              <p>Click to open email client</p>
+            </div>
+          </div>
           <div class="contact-method">
             <i class="fas fa-comments"></i>
             <div>
@@ -524,22 +529,22 @@
         });
       });
 
-       // Initialize handlers
-       new EmailHandler(); // Initialize email support
-       
-       // Initialize form handler
-       // Uncomment one of the following options:
+      // Initialize handlers
+      new EmailHandler(); // Initialize email support
 
-       // Option 1: Google Forms (current implementation)
-       // new FormHandler();
+      // Initialize form handler
+      // Uncomment one of the following options:
 
-       // Option 2: Formspree (recommended for GitHub Pages)
-       // new FormHandler();
+      // Option 1: Google Forms (current implementation)
+      // new FormHandler();
 
-       // Option 3: Custom backend endpoint
-       // new SimpleFormHandler('/api/contact');
+      // Option 2: Formspree (recommended for GitHub Pages)
+      // new FormHandler();
 
-       // Option 4: Demo mode (current implementation)
+      // Option 3: Custom backend endpoint
+      // new SimpleFormHandler('/api/contact');
+
+      // Option 4: Demo mode (current implementation)
       document
         .getElementById("contactForm")
         .addEventListener("submit", async function (e) {

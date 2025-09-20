@@ -3,7 +3,8 @@
 
 class FormHandler {
   constructor() {
-    this.googleFormEndpoint = "https://docs.google.com/forms/d/1WlPDCiHEoCAeGW7--GJgXXrnAMblwNIBMUef5II3LtY/formResponse";
+    this.googleFormEndpoint =
+      "https://docs.google.com/forms/d/1WlPDCiHEoCAeGW7--GJgXXrnAMblwNIBMUef5II3LtY/formResponse";
     this.init();
   }
 
@@ -62,14 +63,14 @@ class FormHandler {
   async submitToFormService(data) {
     // Option 1: Google Forms
     const formData = new FormData();
-    
+
     // Map form fields to Google Form field names
     // You may need to adjust these field names based on your actual Google Form
-    formData.append('entry.1234567890', data.name); // Replace with actual field ID
-    formData.append('entry.1234567891', data.email); // Replace with actual field ID
-    formData.append('entry.1234567892', data.subject); // Replace with actual field ID
-    formData.append('entry.1234567893', data.message); // Replace with actual field ID
-    
+    formData.append("entry.1234567890", data.name); // Replace with actual field ID
+    formData.append("entry.1234567891", data.email); // Replace with actual field ID
+    formData.append("entry.1234567892", data.subject); // Replace with actual field ID
+    formData.append("entry.1234567893", data.message); // Replace with actual field ID
+
     return await fetch(this.googleFormEndpoint, {
       method: "POST",
       mode: "no-cors", // Required for Google Forms
@@ -239,8 +240,8 @@ class EmailHandler {
 
   init() {
     // Add click handlers for email links
-    document.querySelectorAll('.email-support').forEach(link => {
-      link.addEventListener('click', this.openEmailClient.bind(this));
+    document.querySelectorAll(".email-support").forEach((link) => {
+      link.addEventListener("click", this.openEmailClient.bind(this));
     });
   }
 
