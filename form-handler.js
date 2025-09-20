@@ -1,9 +1,9 @@
 // Form handler for GitHub Pages
-// This works with form services like Formspree, Netlify Forms, or similar
+// This works with Google Forms, Formspree, Netlify Forms, or similar
 
 class FormHandler {
   constructor() {
-    this.formEndpoint = "https://formspree.io/f/YOUR_FORM_ID"; // Replace with your Formspree endpoint
+    this.googleFormEndpoint = "https://docs.google.com/forms/d/1WlPDCiHEoCAeGW7--GJgXXrnAMblwNIBMUef5II3LtY/formResponse";
     this.init();
   }
 
@@ -60,7 +60,24 @@ class FormHandler {
   }
 
   async submitToFormService(data) {
-    // Option 1: Formspree
+    // Option 1: Google Forms
+    const formData = new FormData();
+    
+    // Map form fields to Google Form field names
+    // You may need to adjust these field names based on your actual Google Form
+    formData.append('entry.1234567890', data.name); // Replace with actual field ID
+    formData.append('entry.1234567891', data.email); // Replace with actual field ID
+    formData.append('entry.1234567892', data.subject); // Replace with actual field ID
+    formData.append('entry.1234567893', data.message); // Replace with actual field ID
+    
+    return await fetch(this.googleFormEndpoint, {
+      method: "POST",
+      mode: "no-cors", // Required for Google Forms
+      body: formData,
+    });
+
+    // Option 2: Formspree (uncomment if using Formspree)
+    /*
     return await fetch(this.formEndpoint, {
       method: "POST",
       headers: {
@@ -68,20 +85,21 @@ class FormHandler {
       },
       body: JSON.stringify(data),
     });
+    */
 
-    // Option 2: Netlify Forms (uncomment if using Netlify)
+    // Option 3: Netlify Forms (uncomment if using Netlify)
     /*
-        return await fetch('/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'form-name': 'contact',
-                ...data
-            })
-        });
-        */
+    return await fetch('/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            'form-name': 'contact',
+            ...data
+        })
+    });
+    */
   }
 
   setLoadingState(button, isLoading) {
@@ -212,6 +230,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // The form will work automatically with Netlify if you add netlify attribute
 });
 
+// Email handler for opening email client
+class EmailHandler {
+  constructor() {
+    this.supportEmail = "support@homedisplay.app";
+    this.init();
+  }
+
+  init() {
+    // Add click handlers for email links
+    document.querySelectorAll('.email-support').forEach(link => {
+      link.addEventListener('click', this.openEmailClient.bind(this));
+    });
+  }
+
+  openEmailClient(e) {
+    e.preventDefault();
+    const subject = encodeURIComponent("Home Display Support Request");
+    const body = encodeURIComponent(`Hello,
+
+I need help with Home Display. Please provide details about your issue below:
+
+Issue Description:
+[Please describe your problem or question here]
+
+Device Information:
+- Device: [Your device model]
+- iOS Version: [Your iOS version]
+- App Version: [Your app version]
+
+Thank you for your help!
+
+Best regards,
+[Your name]`);
+
+    const mailtoLink = `mailto:${this.supportEmail}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+  }
+}
+
 // Export for use in other scripts
 window.FormHandler = FormHandler;
 window.SimpleFormHandler = SimpleFormHandler;
+window.EmailHandler = EmailHandler;
