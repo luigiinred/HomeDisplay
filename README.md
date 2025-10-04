@@ -1,6 +1,6 @@
-# Home Display - Marketing Website
+# Aerial Picture Frame - Marketing Website
 
-A beautiful, responsive marketing website for the Home Display iOS app. This site showcases the app's features, provides support resources, and includes a contact form for user inquiries and feature requests.
+A beautiful, responsive marketing website for the Aerial Picture Frame iOS app. This site showcases the app's features, provides support resources, and includes a contact form for user inquiries and feature requests.
 
 ## 🚀 Features
 
@@ -12,9 +12,9 @@ A beautiful, responsive marketing website for the Home Display iOS app. This sit
 - **Contact Form** - Integrated form handling with multiple backend options
 - **GitHub Pages Ready** - Configured for easy deployment
 
-## 📱 About Home Display
+## 📱 About Aerial Picture Frame
 
-Home Display transforms your iPad into a beautiful smart home control center. Manage all your smart devices from one elegant, always-on interface.
+Aerial Picture Frame combines the beauty of a digital picture frame with the intelligence of a smart home dashboard. Display your favorite memories while staying organized with your calendar, weather, and essential information.
 
 ## 🛠️ Tech Stack
 
@@ -43,7 +43,7 @@ Home Display transforms your iPad into a beautiful smart home control center. Ma
    ```
 
 3. **Access your site:**
-   - Your site will be available at: `https://yourusername.github.io/home-display-public`
+   - Your site will be available at: `https://yourusername.github.io/aerial-picture-frame`
 
 ### Option 2: Netlify
 
@@ -124,7 +124,7 @@ Update the App Store links in `index.html`:
 ## 📁 File Structure
 
 ```
-home-display-public/
+aerial-picture-frame/
 ├── index.html              # Main landing page
 ├── privacy.html            # Privacy policy
 ├── support.html            # Support page with contact form
@@ -145,8 +145,8 @@ home-display-public/
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/home-display-public.git
-   cd home-display-public
+   git clone https://github.com/yourusername/aerial-picture-frame.git
+   cd aerial-picture-frame
    ```
 
 2. **Serve locally:**
@@ -202,12 +202,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Support
 
-For questions about this website template or Home Display app:
+For questions about this website template or Aerial Picture Frame app:
 
-- **Email:** support@homedisplay.app
-- **Website:** [homedisplay.app](https://homedisplay.app)
-- **GitHub Issues:** [Create an issue](https://github.com/yourusername/home-display-public/issues)
+- **Email:** support@aerialpictureframe.app
+- **Website:** [aerialpictureframe.app](https://aerialpictureframe.app)
+- **GitHub Issues:** [Create an issue](https://github.com/yourusername/aerial-picture-frame/issues)
 
 ---
 
-**Made with ❤️ for Home Display**
+**Made with ❤️ for Aerial Picture Frame**

@@ -1,8 +1,8 @@
 # GitHub Pages configuration
-title: Home Display
-description: Transform your iPad into a beautiful smart home control center
-url: https://yourusername.github.io/home-display-public
-baseurl: /home-display-public
+title: Aerial Picture Frame
+description: Transform your device into the ultimate family hub with digital photo frame and smart home dashboard
+url: https://timmygarrabrant.github.io/HomeDisplay
+baseurl: /HomeDisplay
 
 # Build settings
 markdown: kramdown
